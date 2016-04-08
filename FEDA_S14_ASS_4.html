@@ -1,0 +1,29 @@
+<!-- Write an attribute directive to transclude a text inside a div. -->
+
+<html ng-app="myApp">
+	<head>
+		<title>AngularJS Custom Directives</title>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+		<script type="text/javascript">
+			var module = angular.module("myApp", []);
+			
+			module.controller("newCtrl", function($scope){
+			});
+			
+			module.directive('newDirAttribute', function(){
+				return {
+					restrict: 'A',
+					template: 'Hello, <span ng-transclude></span>',
+					transclude: true
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<div ng-controller="newCtrl">
+			
+			<div new-dir-attribute> Trying to transclude. </div>
+			
+		</div>
+	</body>
+</html>
